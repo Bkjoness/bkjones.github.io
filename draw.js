@@ -15,20 +15,20 @@ function draw() {
   strokeWeight(7);
   
    
-  for(let i = 0; i <= 15; i++) {
-    for(let j = 0; j <= 15; j++) {
+  for(let i = 0; i <= 14; i++) {
+    for(let j = 0; j <= 12; j++) {
   fill(255);
-  ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
+  ellipse(eyePosx * i + 200, eyePosy * j + 200, 100, 100);
       
       fill(mouseY, 0, 0, 50);
-  ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
+  ellipse(eyePosx * i + 200, eyePosy * j + 200, 100, 100);
   
   
   pupilPosx = map(mouseX, 0, width, eyePosx - 20, eyePosx + 20, true);
   pupilPosy = map(mouseY, 0, height, eyePosy - 20, eyePosy + 20, true);
   
   fill(0);
-  ellipse(pupilPosx + 100 * i, pupilPosy + 100 * j, 30, 30);
+  ellipse(pupilPosx + 200 * i, pupilPosy + 200 * j, 30, 30);
     }
   }
 }
