@@ -1,40 +1,34 @@
-let ellipseArray = [];
-        let numOfEllipses = 20;
-        let ellipseRadius = 20;
+let eyePosx = 100
+let eyePosy = 100
+let pupilPosx = 200
+let pupilPosy = 200
 
 
-        function setup() {
-        let canvas = createCanvas(400, 400);
-        canvas.parent('p5canvas');
-        
-        for (let i = 0; i < numOfEllipses; i++) {
-        let vector = createVector(-400, -400);
-            ellipseArray.push(vector);
-            }
-        }
+function setup() {
+  let canvas = createCanvas(400, 400);
+  canvas.parent('p5Canvas');
 
-        function draw() {
-        background(255, 50);
-        //fill(0);
-        noStroke();
-        
-        let oldestPosition = ellipseArray.shift();
-        let newestPosition = createVector(mouseX, mouseY);
-        
-        ellipseArray.push(newestPosition);
-                                        
-                                        
-        for (let i = 0; i < ellipseArray.length; i++) {
-            let temporaryVector = ellipseArray[i]
-        
-            if (mouseIsPressed) {
-                fill(80, 250, i*5);
-            }
-            else fill(0);
-            ellipse(temporaryVector.x, temporaryVector.y, ellipseRadius, ellipseRadius);
-        }
-        
-        ellipse(mouseX, mouseY, ellipseRadius, ellipseRadius);
-        
-        
-        }
+}
+
+function draw() {
+  background(128);
+  strokeWeight(7);
+  
+   
+  for(let i = 0; i <= 2; i++) {
+    for(let j = 0; j <= 2; j++) {
+  fill(255);
+  ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
+      
+      fill(mouseY, 0, 0, 50);
+  ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
+  
+  
+  pupilPosx = map(mouseX, 0, width, eyePosx - 20, eyePosx + 20, true);
+  pupilPosy = map(mouseY, 0, height, eyePosy - 20, eyePosy + 20, true);
+  
+  fill(0);
+  ellipse(pupilPosx + 100 * i, pupilPosy + 100 * j, 30, 30);
+    }
+  }
+}
