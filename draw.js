@@ -17,12 +17,12 @@ function draw() {
   fill(255);
   ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
       
-      fill(mouseY, 0, 0, 50);
+      fill(mouseY / 5, 0, 0, 50);
   ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
   
   
-  pupilPosx = map(mouseX, 0, width, eyePosx - 20, eyePosx + 20, true);
-  pupilPosy = map(mouseY, 0, height, eyePosy - 20, eyePosy + 20, true);
+  pupilPosx = map(mouseX, 0, windowWidth, eyePosx - 20, eyePosx + 20, true);
+  pupilPosy = map(mouseY, 0, windowHeight, eyePosy - 20, eyePosy + 20, true);
   
   fill(0);
   ellipse(pupilPosx + 100 * i, pupilPosy + 100 * j, 30, 30);
