@@ -5,7 +5,7 @@ let pupilPosy = 200
 
 
 function setup() {
-  let canvas = createCanvas(400, 400);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('p5Canvas');
 
 }
