@@ -15,8 +15,8 @@ function draw() {
   strokeWeight(7);
   
    
-  for(let i = 0; i <= 2; i++) {
-    for(let j = 0; j <= 2; j++) {
+  for(let i = 0; i <= 15; i++) {
+    for(let j = 0; j <= 15; j++) {
   fill(255);
   ellipse(eyePosx * i + 100, eyePosy * j + 100, 100, 100);
       
