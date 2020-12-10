@@ -20,7 +20,7 @@ function draw() {
     let d = day();
 
     // Drawing the line function, with x positions determined by the increment of i multiplied by the space variable.
-    line(300 + (i * space), 350, 350 + (i * space), 450);
+    line(500 + (i * space), 350, 500 + (i * space), 450);
 
 
     // This is just to add text numbers that correspond to the days, again using the index to control this.
@@ -29,7 +29,7 @@ function draw() {
     noStroke();
     strokeWeight(2)
     fill(0);
-    text(i, 350 + (i * space), 470)
+    text(i, 495 + (i * space), 470)
     pop();
 
     if (i === (d - 1)) {
@@ -44,7 +44,7 @@ function draw() {
     push();
     noStroke();
     textSize(50)
-    text('We have had ' + d + ' days so far.', 340, 300);
+    text('We have had ' + d + ' days so far.', 495, 300);
     pop();
   }
 }
