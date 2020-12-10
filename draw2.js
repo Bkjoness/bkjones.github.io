@@ -1,8 +1,8 @@
 let novDays = 31
 
 function setup() {
-  createCanvas(800, 800);
-
+  let canvas = createCanvas(800, 800);
+    canvas.parent('p5Canvas');
 }
 
 function draw() {
