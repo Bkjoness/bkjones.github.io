@@ -1,8 +1,7 @@
-let novDays = 30
+let novDays = 31
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('p5Canvas2');
+  createCanvas(800, 800);
 
 }
 
@@ -10,7 +9,7 @@ function draw() {
   background(128);
 
   // Creating the for loop up to and including 30
-  for (let i = 1; i <= 30; i++) {
+  for (let i = 1; i <= novDays; i++) {
 
     push();
     strokeWeight(10);
@@ -21,21 +20,22 @@ function draw() {
     let d = day();
 
     // Drawing the line function, with x positions determined by the increment of i multiplied by the space variable.
-    line(100 + (i * space), 350, 100 + (i * space), 450);
+    line(300 + (i * space), 350, 350 + (i * space), 450);
 
 
     // This is just to add text numbers that correspond to the days, again using the index to control this.
     push();
-    textSize(15)
+    textSize(14)
+    noStroke();
     strokeWeight(2)
     fill(0);
-    text(i, 94 + (i * space), 475)
+    text(i, 350 + (i * space), 470)
     pop();
 
     if (i === (d - 1)) {
       stroke(180, 200, 180);
       fill(180, 200, 180);
-      ellipse(120 + (i * space), 400, 20, 20);
+      //ellipse(370 + (i * space), 400, 20, 20);
     } else {
       stroke("black");
     }
@@ -44,7 +44,7 @@ function draw() {
     push();
     noStroke();
     textSize(50)
-    text('We have had ' + d + ' days so far.', 90, 300);
+    text('We have had ' + d + ' days so far.', 340, 300);
     pop();
   }
 }
