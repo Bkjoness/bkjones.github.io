@@ -1,50 +1,37 @@
-let novDays = 31
+let logo;
+let startPosX = 15
+let startPosY = 15
+let endPosX;
+let endPosY;
+let max_distance;
+
+function preload() {
+  logo = loadImage("luvaLogo3.png")
+}
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-    canvas.parent('p5Canvas2');
+  createCanvas(600, 600);
+  max_distance = dist(0, 0, width, height);
 }
 
 function draw() {
-  background(128);
-
-  // Creating the for loop up to and including 30
-  for (let i = 1; i <= novDays; i++) {
-
-    push();
-    strokeWeight(10);
-
-    // Space is the variable for the correct positioning of the calender
-    let space = (600 / novDays);
-    // Day is a function that gets the current day from the laptop calender
-    let d = day();
-
-    // Drawing the line function, with x positions determined by the increment of i multiplied by the space variable.
-    line(500 + (i * space), 350, 500 + (i * space), 450);
+  background('white');
 
 
-    // This is just to add text numbers that correspond to the days, again using the index to control this.
-    push();
-    textSize(14)
-    noStroke();
-    strokeWeight(2)
-    fill(0);
-    text(i, 495 + (i * space), 470)
-    pop();
 
-    if (i === (d - 1)) {
-      stroke(180, 200, 180);
-      fill(180, 200, 180);
-      //ellipse(370 + (i * space), 400, 20, 20);
-    } else {
-      stroke("black");
+  endPosX = map(mouseX, 0, width, startPosX - 5, startPosX + 5, true);
+  endPosY = map(mouseY, 0, width, startPosY - 5, startPosY + 5, true);
+
+  for (let i = 0; i < 8; i++) {
+    for (let j = 0; j < 8; j++) {
+
+      noStroke();
+      let opacity = dist(mouseX, mouseY, i * 70, j * 70);
+      opacity = (opacity / max_distance) * 100;
+      //fill(100, 0, 0, opacity * 3 );
+      //ellipse((i * 70) + 40, (j * 70) + 40, 70);
+      tint(255, opacity * 10);
+      image(logo, (i * 70) + endPosX, (j * 70) + endPosY, 50, 50);
     }
-
-    // This text function is just to state how many days we have had so far in november.
-    push();
-    noStroke();
-    textSize(50)
-    text('We have had ' + d + ' days so far.', 495, 300);
-    pop();
-  }
+    }
 }
