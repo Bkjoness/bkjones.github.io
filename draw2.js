@@ -10,7 +10,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  let canvas = createCanvas(600, 600);
+  canvas.parent('p5Canvas2');
   max_distance = dist(0, 0, width, height);
 }
 
